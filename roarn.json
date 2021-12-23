@@ -1,8 +1,9 @@
 {
-  "name": "roarn-plugin",
-  "version": "1.0.0",
-  "description": "",
-  "dependencies": {
-    "Fusion": "1.0.1"
-  }
+	"name": "roarn-plugin",
+	"version": "1.0.0",
+	"description": "",
+	"dependencies": {
+		"Fusion": "1.0.1",
+		"fetchu": "0.0.8"
+	}
 }
