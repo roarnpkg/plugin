@@ -1,0 +1,17 @@
+{
+  "name": "roarn-plugin",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "RoarnStudio": {
+        "$className": "Folder",
+        "Plugin": {
+          "$path": "src",
+          "modules": {
+            "$path": "roarn_modules"
+          }
+        }
+      }
+    }
+  }
+}
