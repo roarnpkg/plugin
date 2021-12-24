@@ -48,14 +48,16 @@ local function Home(props)
                 BackgroundColor3 = Color3.fromRGB(3,108,156),
                 TextColor3 = Color3.new(255,255,255),
                 TextScaled = true,
+                BorderSizePixel = 10,
+                BorderColor3 = Color3.fromRGB(3,108,156),
                 Font = Enum.Font.Roboto,
                 Text = "Login",
                 Name = "LoginButton",
                 ZIndex = 10,
                 [Children] = {
-                    New "UICorner" {
-                        CornerRadius = UDim.new(1, 0)
-                    }
+                    -- New "UICorner" {
+                    --     CornerRadius = UDim.new(1, 0)
+                    -- },
                 },
                 [OnEvent "Activated"] = function()
                     props.Widget.Main.Loader.Visible = true
@@ -63,9 +65,11 @@ local function Home(props)
                 end,
                 [OnEvent "MouseEnter"] = function()
                     props.Widget.Main.HomeScreen.LoginButton.BackgroundColor3 = Color3.fromRGB(0, 128, 186)
+                    props.Widget.Main.HomeScreen.LoginButton.BorderColor3 = Color3.fromRGB(0, 128, 186)
                 end,
                 [OnEvent "MouseLeave"] = function()
                     props.Widget.Main.HomeScreen.LoginButton.BackgroundColor3 = Color3.fromRGB(3,108,156)
+                    props.Widget.Main.HomeScreen.LoginButton.BorderColor3 = Color3.fromRGB(3,108,156)
                 end
             },
             New "ImageLabel" {

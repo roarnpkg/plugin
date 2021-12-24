@@ -34,6 +34,6 @@ Container {
             Loader
         }
 }
-task.wait(0.5)
+task.wait(0.1)
 initWidget.Main.Loader.Visible = false
 initWidget.Main.HomeScreen.Visible = true
