@@ -54,11 +54,6 @@ local function Home(props)
                 Text = "Login",
                 Name = "LoginButton",
                 ZIndex = 10,
-                [Children] = {
-                    -- New "UICorner" {
-                    --     CornerRadius = UDim.new(1, 0)
-                    -- },
-                },
                 [OnEvent "Activated"] = function()
                     props.Widget.Main.Loader.Visible = true
                     props.Widget.Main.HomeScreen.Visible = false
@@ -78,7 +73,17 @@ local function Home(props)
                 AnchorPoint = Vector2.new(0.5,0),
                 BackgroundTransparency = 1,
                 Image = "rbxassetid://8329654378",
-            }
+            },
+            New "TextLabel" {
+                Position = UDim2.new(0.5, 0,0.94, 0),
+                Size = UDim2.new(0.97, 0,0.1, 0),
+                AnchorPoint = Vector2.new(0.5,0),
+                BackgroundTransparency = 1,
+                TextColor3 = Color3.new(255, 255, 255),
+                TextXAlignment = Enum.TextXAlignment.Left,
+                Text = "Copyright © Roarn Team 2022",
+                Font = Enum.Font.Roboto,
+            },
         }
     }
 end
