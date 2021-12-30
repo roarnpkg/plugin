@@ -12,10 +12,13 @@ local defaultWidgetInfo = DockWidgetPluginGuiInfo.new(
     150
 )
 local Fusion = require(script.modules.Fusion)
+local fetchu = require(script.modules.fetchu)
 
 local Container = require(script.components.Container)
 local Loader = require(script.components.Loader)
+local Welcome = require(script.components.WelcomeScreen)
 local Home = require(script.components.HomeScreen)
+
 local Children = Fusion.Children
 
 
@@ -26,14 +29,39 @@ initButton.Click:Connect(function()
     initWidget.Enabled = not initWidget.Enabled
 end)
 
+function authenticate()
+    local GUID = plugin:GetSetting("GUID")
+
+    if not GUID then
+        GUID = fetchu.generateGUID(false)
+        plugin:SetSetting("GUID", GUID)
+    end
+    
+    local response = fetchu.post("https://roarn.space/api/studio/authenticate", {
+        body = {guid = GUID},
+        tablefy = true,
+    })
+    
+    local authData = response.data
+    return authData
+end
+
+local authData = authenticate()
+
 Container {
         Widget = initWidget,
     
         [Children] = {
+            Welcome{Widget = initWidget, onDone = authenticate, code = authData.code},
             Home{Widget = initWidget},
             Loader
         }
 }
-task.wait(0.1)
-initWidget.Main.Loader.Visible = false
-initWidget.Main.HomeScreen.Visible = true
+
+if authData.authenticated then
+    initWidget.Main.Loader.Visible = false
+    initWidget.Main.HomeScreen.Visible = true
+else
+    initWidget.Main.Loader.Visible = false
+    initWidget.Main.WelcomeScreen.Visible = true
+end 
