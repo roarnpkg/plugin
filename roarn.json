@@ -3,6 +3,6 @@
 	"version": "1.0.0",
 	"description": "",
 	"dependencies": {
-		"fetchu": "0.0.9"
+		"fetchu": "1.0.3"
 	}
 }

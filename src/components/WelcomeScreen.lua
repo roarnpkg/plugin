@@ -158,7 +158,7 @@ local function Welcome(props)
                 BackgroundTransparency = 1,
                 TextColor3 = Color3.new(255, 255, 255),
                 TextXAlignment = Enum.TextXAlignment.Left,
-                Text = "Copyright © Roarn Team 2022",
+                Text = "Copyright © Roarn Team " .. os.date("%Y"),
                 Font = Enum.Font.Roboto,
             },
         }
