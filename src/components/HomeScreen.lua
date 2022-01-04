@@ -1,7 +1,10 @@
 local Fusion = require(script.Parent.Parent.modules.Fusion)
+
 local New = Fusion.New
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
+
+local PackageBox = require(script.Parent.PackageBox)
 
 local function Home(props)
     return New "Frame" {
@@ -10,12 +13,37 @@ local function Home(props)
         BackgroundTransparency = 1,
         Size = UDim2.new(1,0,1,0),
         [Children] = {
-            New "ImageButton" {
-                Position = UDim2.new(1,0,0,0),
-                Size = UDim2.new(0.14, 0,0.04, 0),
-                AnchorPoint = Vector2.new(1, 0),
+            New "TextBox" {
+                Position = UDim2.new(0.01,0,0.005,0),
+                Size = UDim2.new(0.8, 0,0.03, 0),
+                AnchorPoint = Vector2.new(0, 0),
+                TextXAlignment = Enum.TextXAlignment.Left,
+                PlaceholderText = "Search",
+                Name = "SearchBar",
+                BorderColor3 = Color3.fromRGB(51, 51, 51),
+                BorderSizePixel = 1.2,
+                BackgroundColor3 = Color3.fromRGB(18, 18, 18),
+                Font = Enum.Font.Code,
+                TextScaled = true,
+                TextColor3 = Color3.new(255,255,255),
+            },
+            New "Frame" {
+                Position = UDim2.new(0.5,0,0.5,0),
+                Size = UDim2.new(0.97, 0,0.9, 0),
+                AnchorPoint = Vector2.new(0.5, 0.5),
                 BackgroundTransparency = 1,
-                Image = "rbxassetid://8437305102",
+
+                [Children] = {
+                    New "UIListLayout" {
+                        Padding = UDim.new(0.02,0),
+                        HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                        VerticalAlignment = Enum.VerticalAlignment.Top,
+                        FillDirection = Enum.FillDirection.Vertical,
+                    },
+                    PackageBox {},
+                    PackageBox {},
+                    PackageBox {}
+                }
             },
             New "TextLabel" {
                 Position = UDim2.new(0.98,0,1.035, 0),
@@ -24,11 +52,12 @@ local function Home(props)
                 BackgroundTransparency = 1,
                 TextColor3 = Color3.new(255, 255, 255),
                 TextXAlignment = Enum.TextXAlignment.Right,
-                Text = "Copyright © Roarn Team " .. os.date("%Y"),
+                Text = "Copyright © Roarn Team " .. tostring(os.date("%Y")),
                 Font = Enum.Font.Roboto,
             },
         }
     }
 end
+
 
 return Home

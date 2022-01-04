@@ -18,6 +18,7 @@ local Container = require(script.components.Container)
 local Loader = require(script.components.Loader)
 local Welcome = require(script.components.WelcomeScreen)
 local Home = require(script.components.HomeScreen)
+local Menu = require(script.components.Menu)
 
 local Children = Fusion.Children
 
@@ -52,6 +53,7 @@ Container {
         Widget = initWidget,
     
         [Children] = {
+            Menu{Widget = initWidget},
             Welcome{Widget = initWidget, onDone = authenticate, code = authData.code},
             Home{Widget = initWidget},
             Loader
@@ -61,6 +63,7 @@ Container {
 if authData.authenticated then
     initWidget.Main.Loader.Visible = false
     initWidget.Main.HomeScreen.Visible = true
+    initWidget.Main.Menu.Visible = true
 else
     initWidget.Main.Loader.Visible = false
     initWidget.Main.WelcomeScreen.Visible = true
