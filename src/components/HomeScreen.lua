@@ -6,8 +6,7 @@ local OnEvent = Fusion.OnEvent
 
 local PackageBox = require(script.Parent.PackageBox)
 
-local function Home(props)
-    return New "Frame" {
+local Home = New "Frame" {
         Visible = false,
         Name = "HomeScreen",
         BackgroundTransparency = 1,
@@ -56,8 +55,7 @@ local function Home(props)
                 Font = Enum.Font.Roboto,
             },
         }
-    }
-end
+}
 
 
 return Home

@@ -139,12 +139,12 @@ local function Menu(props)
 
         [OnEvent "Activated"] = function()
             if isOpen:get() then
-                props.Widget.Main.Menu:TweenPosition(UDim2.new(1,0,0,0), Enum.EasingDirection.In, Enum.EasingStyle.Back, .5, true)
-                props.Widget.Main.MenuButton.Image = "rbxassetid://8437305102"
+                _G.Widget.Main.Menu:TweenPosition(UDim2.new(1,0,0,0), Enum.EasingDirection.In, Enum.EasingStyle.Back, .5, true)
+                _G.Widget.Main.MenuButton.Image = "rbxassetid://8437305102"
                 isOpen:set(false)
             else
-                props.Widget.Main.Menu:TweenPosition(UDim2.new(0,0,0,0), Enum.EasingDirection.Out, Enum.EasingStyle.Back, .5, true)
-                props.Widget.Main.MenuButton.Image = "rbxassetid://8448721297"
+                _G.Widget.Main.Menu:TweenPosition(UDim2.new(0,0,0,0), Enum.EasingDirection.Out, Enum.EasingStyle.Back, .5, true)
+                _G.Widget.Main.MenuButton.Image = "rbxassetid://8448721297"
                 isOpen:set(true)
             end
         end,
