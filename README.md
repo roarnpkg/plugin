@@ -1,4 +1,4 @@
-[![Frame 594|690x215](./assets/logo.png)](https://docs.roarn.space/studio)
+[![Frame 594|690x215](./assets/banner.png)](https://docs.roarn.space/studio)
 
 <div align="center">
 
